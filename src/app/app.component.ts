@@ -18,10 +18,8 @@ export class AppComponent {
       let letter = line.split('');
       let repeat = '';
       for (let i = 0; i < line.length; i++) {
-        for (let j = i + 1; j < line.length; j++) {
-          if (line.split(letter[i]).length - 1 === 2 && line.split(letter[j]).length - 1 === 2) {
-            repeat += line.charAt(i);
-          }
+        if (line.split(letter[i]).length - 1 === 2) {
+          repeat += line.charAt(i);
         }
       }
       if (repeat) {

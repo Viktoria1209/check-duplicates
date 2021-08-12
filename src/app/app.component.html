@@ -3,13 +3,14 @@
     <h3>Input</h3>
 
     <form>
-      <mat-form-field class="example-full-width" appearance="fill">
-        <textarea #input matInput placeholder="Type here"></textarea>
+      <mat-form-field appearance="fill">
+        <textarea #input matInput cdkTextareaAutosize placeholder="Type here"></textarea>
       </mat-form-field>
     </form>
 
     <button type="submit" (click)="findRepeatedLetters(input.value)">Submit</button>
   </div>
+
   <div class="content">
     <h3>Output</h3>
     <div class="display-block" *ngFor="let result of results">{{ result }}</div>

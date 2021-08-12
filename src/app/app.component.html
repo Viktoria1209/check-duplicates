@@ -9,10 +9,9 @@
     </form>
 
     <button type="submit" (click)="findRepeatedLetters(input.value)">Submit</button>
-
   </div>
   <div class="content">
     <h3>Output</h3>
-    <!-- <div>{{ }}</div> -->
+    <div class="display-block" *ngFor="let result of results">{{ result }}</div>
   </div>
 </div>

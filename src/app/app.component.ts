@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   data!: string;
-  output: any;
+  results!: any[];
 
   findRepeatedLetters(data: string) {
     this.data = data;
@@ -29,8 +28,7 @@ export class AppComponent {
         result.push(line);
       }
     })
-    console.log(result)
-    return result;
+    this.results = result;
   }
 }
 

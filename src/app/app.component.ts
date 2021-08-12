@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,32 +8,29 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   data!: string;
+  output: any;
 
-  getInputValue(data: string): void {
+  findRepeatedLetters(data: string) {
     this.data = data;
-    console.log(this.findRepeat(data))
-  }
+    let result: any[] = [];
+    let lines = data.split('\n');
 
-  findRepeat(data: string) {
-    this.data = data;
-
-    const splittedData = data.split('');
-    const hash = new Map();
-    const result: any[] = [];
-    for (let i = 0; i < splittedData.length; i++) {
-      if (hash.get(splittedData[i]) === undefined) {
-        hash.set(splittedData[i], true);
-      } else {
-        const value = hash.get(splittedData[i]);
-        if (value) {
-          hash.set(splittedData[i], !value);
+    lines.forEach(line => {
+      let letter = line.split('');
+      let repeat = '';
+      for (let i = 0; i < line.length; i++) {
+        for (let j = i + 1; j < line.length; j++) {
+          if (line.split(letter[i]).length - 1 === 2 && line.split(letter[j]).length - 1 === 2) {
+            repeat += line.charAt(i);
+          }
         }
       }
-    }
-    hash.forEach((value, key) => {
-      if (!value)
-        result.push(key);
-    });
-    return result.join('');
+      if (repeat) {
+        result.push(line);
+      }
+    })
+    console.log(result)
+    return result;
   }
 }
+
